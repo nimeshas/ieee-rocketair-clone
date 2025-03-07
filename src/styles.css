@@ -112,7 +112,7 @@ body{
     padding: 0.5rem 0;
     outline: none;
 }
-
+/* Remove placeholder text visibility */
 .email-form input::placeholder {
     color: transparent;
 }
