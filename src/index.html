@@ -4,52 +4,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>navbar</title>
+    <title>footer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1600px;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .divider {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 1px;
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(-50%);
+            height: 100%;
+        }
+
+        .footer-left {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .footer-left h2 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .l1{
+            font-size: 14px;
+            margin-bottom: 1px;
+        }
+
+        .l2{
+            font-size: 14px;
+            margin-bottom: 3rem;
+        }
+
+        .footer-left img {
+            width: 270px;
+            margin-bottom: 2rem;
+        }
+
+        .email-input {
+            background: transparent;
+            border: none;
+            border-bottom: 0.4px solid gray;
+            color: #fff;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            font-weight: 400px;
+            width: 70%;
+        }
+
+        .email-input:focus {
+            outline: none;
+            background: transparent;
+        }
+
+        .subscribe-btn {
+            margin-top: 30px;
+            background: transparent;
+            border: 1px solid #fff;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .subscribe-btn:hover {
+            background-color: white;
+            border-style: solid;
+            border-color: grey;
+            border-width: 1px;
+            color: black;
+        }
+
+        .footer-right {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+
+        .footer-menu {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-around;
+        }
+
+        .footer-menu a {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 32px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .footer-menu a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Shutter effect */
+        .footer-menu a::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: white;
+            clip-path: inset(50% 0 50% 0);
+            transition: clip-path 0.5s ease-in-out;
+            z-index: -1;
+        }
+
+        .footer-menu a:hover::before {
+            clip-path: inset(0 0 0 0);
+        }
+
+        .footer-menu a:hover {
+            color: black;
+            transform: scale(1.05);
+        }
+
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1rem 2rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 0.6px solid white;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .social-icons a::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            clip-path: inset(50% 0 50% 0);
+            transition: clip-path 0.3s ease-in-out;
+            z-index: -1;
+        }
+
+        .social-icons a:hover::before {
+            clip-path: inset(0 0 0 0);
+
+        }
+
+        .social-icons a:hover {
+            color: black;
+
+        }
+
+
+        .privacy a {
+            font-size: 1rem;
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.7;
+        }
+    </style>
 </head>
 
+<body>
+    <footer class="footer">
+        <div class="divider"></div>
+
+        <div class="footer-left">
+            <h2>Fuel for Thought</h2>
+            <p class="l1">A casual hello from the RocketAir Crew filled with insights,</p>
+            <p class="l2">inspiration, and good vibes only.</p>
+            <img src="footer_img.svg" alt="Rocket Image">
+            <input type="email" class="email-input" placeholder="Email">
+            <button class="subscribe-btn">Subscribe</button>
+        </div>
+
+        <div class="footer-right">
+            <div class="footer-menu">
+                <a href="#">Work</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Verticals</a>
+                <a href="#">Careers</a>
+                <a href="#">Ideas</a>
+                <a href="#">News</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
 
 
-
-<footer class="footer">
-    <div class="footer-left">
-        <div class="footer-left-title">
-            <div class="footer-title">Fuel for Thought</div>
-            <div class="footer-desc">A casual hello from the RocketAir Crew filled with insights, inspiration, and good
-                vibes only.
+                </div>
+                <div class="privacy">
+                    <a href="#">Privacy Policy</a>
+                </div>
             </div>
         </div>
-        <div class="footer-img">
-        <img src="footer_img.svg ">
-        </div>
-            <form class="email-form">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                <div class="underline"></div>
-                <button type="submit" id="subscribe">Subscribe</button>
-            </form>
-        
-    </div>
-    <div class="footer-right">
-        <ul class="footer-links">
-            <li>Work</li>
-            <li>About</li>
-            <li>Services</li>
-            <li>Verticals</li>
-            <li>Careers</li>
-            <li>Ideas</li>
-            <li>News</li>
-            <li>Contact</li>
-        </ul>
-        <div class="social-icons">
-            <span>Twitter</span>
-            <span>LinkedIn</span>
-            <span>YouTube</span>
-            <span>Instagram</span>
-        </div>
-        <p class="privacy-policy">Privacy Policy</p>
-    </div>
-</footer>
+    </footer>
+</body>
+
 
 </html>
