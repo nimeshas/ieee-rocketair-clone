@@ -36,5 +36,6 @@ Implementation:
 8) Once I created the basic structure and styling, I used Splide.js for the horizontal scrolling section.
 
 Since this was one of my first web development projects, I was not able to implement all the smooth animations very well, If given a little bit more time, I would ensure that the site is more responsive throughout different screen sizes even though i tried my best to maintain responsiveness.
+Also im having some issues adding my navbar to the page, once i am able to rectify the problems ill add it back to the page.
 
 
